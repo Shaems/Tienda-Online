@@ -1,0 +1,19 @@
+<p>
+  carrito-list works!
+</p>
+
+
+<ion-content>
+
+  <ion-list>
+    <div *ngFor="let item of items">
+      <ion-avatar slot="start">
+        <ion-img [src]="item.imageURL"></ion-img>>
+      </ion-avatar>
+      <ion-label>
+          {{item.title}}<ion-title class="ion-text-end">${{item.price}}</ion-title>
+      </ion-label>
+      
+    </div>
+  </ion-list>
+</ion-content>

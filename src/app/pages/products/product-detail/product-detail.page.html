@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot='start'>
+      <ion-back-button defaultHref="/products"> </ion-back-button>
+    </ion-buttons>
+    <ion-title>{{product.title}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/carrito">
+        <ion-icon name="cart"></ion-icon>
+      </ion-button>
+<!--evento click ejecuta metodo(ts)-->
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <ion-img [src]="product.imageURL"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h1 class="ion-text-center">{{product.title}}</h1>
+      </ion-col>
+    </ion-row>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{product.title}}</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>{{product.detail}}</ion-card-content>
+      <ion-card-title class="ion-text-end">${{product.price}}</ion-card-title>
+    </ion-card>
+
+  <!--cambiar por boton "agregar al carrito-->
+    <ion-button color="secondary" (click)="addToCarrito(product)" class="cart-icon">
+         Agregar al carrito
+  </ion-button>
+
+    <ion-row>
+      <ion-col>
+        <ion-list *ngIf="product.comments && product.comments.length > 0; else noComments">
+          <ion-item *ngFor="let comment of product.comments">
+            {{comment}}
+          </ion-item>
+        </ion-list>
+        <ng-template #noComments>
+          <ion-text>
+            <p class="ion-text-center">No comments yet.</p>
+          </ion-text>
+        </ng-template>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

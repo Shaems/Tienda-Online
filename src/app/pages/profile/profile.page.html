@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Perfil</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToHome()">
+        <ion-icon name="globe"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-row>
+    <ion-col>
+      <h1 class="ion-text-center">Username</h1>
+      <ion-label (click)="goToProducts()">
+       <ion-title class="ion-text-center">Mis productos</ion-title>
+    </ion-label>
+      <h2>Mis datos</h2>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

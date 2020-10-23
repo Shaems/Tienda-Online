@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot='start'>
+      <ion-back-button defaultHref="profile/products"> </ion-back-button>
+    </ion-buttons>
+    <ion-title>Añadir nuevo producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-card-content>
+          <ion-input type="text" placeholder="Nombre del producto" #title></ion-input>
+          <ion-input type="text" placeholder="http://imagewebsite.com" #imageURL></ion-input>
+          <ion-input type="text" placeholder="Detail" #detail></ion-input>
+          <ion-input type="number" placeholder="Precio" #price></ion-input>
+          <ion-button color="primary" (click)="saveNewProduct(title, imageURL, detail, price)">
+            Crear
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>

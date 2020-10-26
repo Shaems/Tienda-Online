@@ -13,6 +13,12 @@ export class ProductsPage implements OnInit {
   products = [];
   productsService: any;
 
+  sliderConfig = {
+    spaceBetween: 10,
+    centeredSlide: true,
+    slidesPerView: 1.9
+  }
+
   constructor(private productService: ProductsService, private router: Router) { }
 
   ngOnInit() {

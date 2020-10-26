@@ -1,33 +1,64 @@
-<ion-header [translucent]="true">
-  <ion-toolbar color="tertiary">
-    <ion-title>
-      Home
-    </ion-title>
-    <ion-content>
-    </ion-content>
-    
+
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title class="ion-text-center">Tienda</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/carrito">
+        <ion-icon name="cart"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content [fullscreen]='true'>
 
-  <ion-button (click)="OnLogOut()">Desconectarse</ion-button>
+  <ion-row>
+    <ion-img src='https://cdn.pixabay.com/photo/2016/07/07/01/16/abstract-1501710_1280.jpg'></ion-img>
+  </ion-row>
 
-  <ion-list>
-    <ion-item>
-      <ion-item>
-        <ion-avatar slot="start">
-          <ion-img src="https://cdn.pixabay.com/photo/2020/09/23/09/12/orange-flower-5595483_1280.jpg"></ion-img>
-        </ion-avatar>
-          <ion-label>
-          <h2> <b>Chat de grupo</b></h2>
-          <h3>esto e sun cadje</h3>
-          <p>Accede jaceindo</p>
-          </ion-label>   
-      </ion-item>
-    </ion-item>
-    
-  </ion-list>
+  <ion-grid style='overflow: hidden;position: fixed;width: 100%;' *ngIf='products.length ==0'>
+    <ion-row>
+      <ion-col size='6' *ngFor='let item of [0,1,2,3,4,5,6,7,8,9]'>
+        <ion-skeleton-text ></ion-skeleton-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
+  <ion-grid>
+    <ion-row>
+      <ion-col size='6' *ngFor='let product of products' class='product'  [routerLink]="['/products', product.id]">
+        <img src='{{product.imageURL}}' alt=''>
+        <ion-item lines='none'>
+          <ion-label  class='ion-text-center'>
+            <h2>{{product.title}}</h2>
+            <p>${{product.price}}</p>
+            <ion-note></ion-note>
+          </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+ 
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success" href="https://wa.me/1150475314?text=Me%20interesa%20el%20auto%20que%20estás%20vendiendo">
+      <ion-icon name="logo-whatsapp"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+  <ion-footer>
+    <ion-toolbar class="ion-text-center" color="dark">
+      <ion-title class="ion-text-center"></ion-title>
+        <ion-button color='dark' href='http://www.instagram.com/'>
+          <ion-icon name="logo-instagram"></ion-icon>
+        </ion-button>
+    </ion-toolbar>
+  </ion-footer>
 
 </ion-content>
+

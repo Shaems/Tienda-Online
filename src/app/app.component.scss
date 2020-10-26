@@ -1,0 +1,30 @@
+*{
+    font-family: lato;
+}
+
+.menu-header{
+    height: 180px;
+    width: 350px;
+}
+
+.header-content{
+    position: absolute;
+    top: 30px;
+    left: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.menu-items{
+    margin: 0px;
+
+    ion-icon{
+        margin-right: 20px;
+        color: #86979f;
+    }
+    ion-item{
+        padding-left: 20px;
+        margin-bottom: 10px;
+    }
+
+}

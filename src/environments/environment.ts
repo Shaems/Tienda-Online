@@ -7,13 +7,13 @@ export const environment = {
 };
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyDt67yo9kdGIHrIfhSjKzDosS9cC0xfizY",
-  authDomain: "crud-84bd6.firebaseapp.com",
-  databaseURL: "https://crud-84bd6.firebaseio.com",
-  projectId: "crud-84bd6",
-  storageBucket: "crud-84bd6.appspot.com",
-  messagingSenderId: "978727634319",
-  appId: "1:978727634319:web:ab4a2a0a88ead353e7b7fa"
+  apiKey: "AIzaSyAOyN1umW5jB61Vdvc66oEDh0hYn4miM40",
+  authDomain: "mr-shop-37a99.firebaseapp.com",
+  databaseURL: "https://mr-shop-37a99.firebaseio.com",
+  projectId: "mr-shop-37a99",
+  storageBucket: "mr-shop-37a99.appspot.com",
+  messagingSenderId: "530894247042",
+  appId: "1:530894247042:web:c6b16d815f224fb696109b"
 };
 
 /*

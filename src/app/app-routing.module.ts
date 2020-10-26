@@ -8,7 +8,7 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
-    canActivate : [AuthGuard]
+    
   },
   //Agregar a todas las pag canActivate : [AuthGuard]
   {
@@ -27,7 +27,7 @@ const routes: Routes = [
       {
         path: ":productId",
         loadChildren: () => import('./pages/products/product-detail/product-detail.module').then( m => m.ProductDetailPageModule),
-        canActivate : [AuthGuard]
+        
       }
     ]
   },

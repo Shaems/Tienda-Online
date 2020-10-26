@@ -25,3 +25,19 @@
 #container a {
   text-decoration: none;
 }
+
+.product {
+  text-align: center;
+
+  img {
+      width: 150px;
+      height: 150px;
+      border: 1px solid #ccc;
+    
+      border-radius: 5px;
+  }
+  
+  p {
+      font-size: medium;
+  }
+}

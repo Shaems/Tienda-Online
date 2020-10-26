@@ -1,7 +1,10 @@
 
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Menú List</ion-title>
+    <ion-title>Tienda Online</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-buttons slot="end">
       <ion-button (click)="goToHome()">
         <ion-icon name="globe"></ion-icon>
@@ -10,24 +13,91 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
 
-  <ion-list>
-    <ion-item *ngFor="let product of products">
-      <ion-avatar slot="start">
-        <ion-img [src]="product.imageURL"></ion-img>>
-      </ion-avatar>
-      <ion-label [routerLink]="['/products', product.id]">
-          {{product.title}}  <ion-title class="ion-text-end">${{product.price}}</ion-title>
-      </ion-label>
-      <ion-buttons>
-        <ion-button (click)="goToHome()">
-          <ion-icon name="create-outline"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-    </ion-item>
+<ion-content [fullscreen]='true'>
+
+  <ion-segment scrollable value='1'>
+    <ion-segment-button value='1'>
+      <ion-label>Más vendidos</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value='2'>
+      <ion-label>New Design</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value='3'>
+      <ion-label>Más vendidos</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
   
-  </ion-list>
+
+    <ion-button (click)="OnLogOut()">Desconectarse</ion-button>
+  
+    <ion-list>
+      <ion-item>
+        <ion-item>
+          <ion-avatar slot="start">
+            <ion-img src="https://cdn.pixabay.com/photo/2020/09/23/09/12/orange-flower-5595483_1280.jpg"></ion-img>
+          </ion-avatar>
+            <ion-label>
+            <h2> <b>Chat de grupo</b></h2>
+            <h3>esto e sun cadje</h3>
+            <p>Accede jaceindo</p>
+            </ion-label>   
+        </ion-item>
+      </ion-item>
+      
+    </ion-list>
+  
+  
+ 
+
+  <ion-slides [options]='sliderConfig'>
+    <ion-slide *ngFor="let product of products">
+      <ion-card class='ion-text-start' style='border-radius: 15px;' [routerLink]="['/products', product.id]">
+        <ion-card-header>
+          <ion-card-title class='ion-text-center'>
+            {{product.title}}
+            ${{product.price}}
+          </ion-card-title>
+          <ion-card-content>
+            <img src='{{product.imageURL}}' alt='' style='width: 150px; height: 150px;'>
+            <ion-button expand='full' class='ion-no-margin'>Full button</ion-button>
+          </ion-card-content>
+         </ion-card-header>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+
+ 
+  <ion-grid style='overflow: hidden;position: fixed;width: 100%;' *ngIf='products.length ==0'>
+    <ion-row>
+      <ion-col size='6' *ngFor='let item of [0,1,2,3,4,5,6,7,8,9]'>
+        <ion-skeleton-text ></ion-skeleton-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size='6' *ngFor='let product of products' class='product'  [routerLink]="['/products', product.id]">
+        <img src='{{product.imageURL}}' alt=''>
+        <ion-item lines='none'>
+          <ion-label  class='ion-text-center'>
+            <h2>{{product.title}}</h2>
+            <p>${{product.price}}</p>
+            <ion-note></ion-note>
+          </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-infinite-scroll threshold='100px' (ionInfinite)='loadDAta($event)'>
+    <ion-infinite-scroll-content>
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button color="danger" (click)="addNewProduct()">

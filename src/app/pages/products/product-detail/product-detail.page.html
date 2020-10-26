@@ -3,7 +3,7 @@
     <ion-buttons slot='start'>
       <ion-back-button defaultHref="/products"> </ion-back-button>
     </ion-buttons>
-    <ion-title>{{product.title}}</ion-title>
+    <ion-title class="ion-text-center">Logo</ion-title>
     <ion-buttons slot="end">
       <ion-button routerLink="/carrito">
         <ion-icon name="cart"></ion-icon>
@@ -12,6 +12,7 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
 
 
 <ion-content>
@@ -27,6 +28,17 @@
       </ion-col>
     </ion-row>
 
+    <ion-item>
+      <ion-label>Talle</ion-label>
+      <ion-select placeholder="Select One">
+        <ion-select-option value="85">85</ion-select-option>
+        <ion-select-option value="90">90</ion-select-option>
+        <ion-select-option value="95">95</ion-select-option>
+        <ion-select-option value="100">100</ion-select-option>
+        <ion-select-option value="105">105</ion-select-option>
+      </ion-select>
+    </ion-item>
+
     <ion-card>
       <ion-card-header>
         <ion-card-title>{{product.title}}</ion-card-title>
@@ -35,6 +47,8 @@
       <ion-card-content>{{product.detail}}</ion-card-content>
       <ion-card-title class="ion-text-end">${{product.price}}</ion-card-title>
     </ion-card>
+
+   
 
   <!--cambiar por boton "agregar al carrito-->
     <ion-button color="secondary" (click)="addToCarrito(product)" class="cart-icon">

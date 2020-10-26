@@ -1,3 +1,21 @@
-<ion-app>
-  <ion-router-outlet></ion-router-outlet>
-</ion-app>
+<ion-menu side="start" menuId="first" contentId="main">
+  <ion-header>
+    <ion-toolbar color="dark"> 
+      <ion-title>Productos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list class='menu-items' lines='none'>
+      <ion-item>
+        <ion-icon name="cube-outline"></ion-icon>Conjuntos</ion-item>
+      <ion-item>
+        <ion-icon name="caret-up-outline"></ion-icon>Bralette</ion-item>
+      <ion-item>
+        <ion-icon name="caret-down-outline"></ion-icon>Less</ion-item>
+      <ion-item>
+        <ion-icon name="eye-outline"></ion-icon>Ver todos los productos</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-router-outlet id="main"></ion-router-outlet>
+
